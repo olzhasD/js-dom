@@ -1,0 +1,22 @@
+body {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
+ul li {
+    list-style: none; /* убираем дефолтные маркеры */
+    color: blue;
+}
+
+.list span {
+    cursor: pointer;
+}
+
+.hide::before {
+    content: "+"; /* украшательство вместо маркера */
+}
+
+.show::before {
+    content: "-"; /* украшательство вместо маркера */
+}

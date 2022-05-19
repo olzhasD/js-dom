@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="lab11.css">
+    </head>
+
+<body>
+    <h1>Пример раскрывающегося списка</h1>
+    <ul class="list" id="list">
+  <li>Книги
+    <ul>
+      <li>Отечественные
+        <ul>
+          <li>детективы</li>
+          <li>научная фантастика</li>
+          <li>исторические</li>
+
+        </ul>
+      </li>
+      <li>Зарубежные
+        <ul>
+          <li>детективы</li>
+          <li>научная фантастика</li>
+          <li>исторические</li>
+
+        </ul>
+      </li>
+    </ul>
+
+  </li>
+  <li>DVD
+    <ul>
+      <li>Отечественные
+        <ul>
+          <li>детективы</li>
+          <li>научная фантастика</li>
+          <li>исторические</li>
+
+        </ul>
+      </li>
+      <li>Зарубежные
+        <ul>
+          <li>детективы</li>
+          <li>научная фантастика</li>
+          <li>исторические</li>
+
+        </ul>
+      </li>
+    </ul>
+
+  </li>
+</ul>
+</body>
+<script type="text/javascript">
+for (let li of list.querySelectorAll('li')) {
+    let span = document.createElement('span'); /* создание span */
+    span.classList.add('show'); /* добавление класса для span */
+    li.prepend(span); /* вставить span внутри li */
+    span.append(span.nextSibling) /* присоединить к span следующий узел */
+}
+list.onclick = function(event) {
+    if (event.target.tagName != 'SPAN') return;
+
+    let childrenList = event.target.parentNode.querySelector('ul');
+    if (!childrenList) return;
+    childrenList.hidden = !childrenList.hidden;
+
+    if (childrenList.hidden) {
+        event.target.classList.add('hide');
+        event.target.classList.remove('show');
+    }
+
+    else {
+        event.target.classList.add('show');
+        event.target.classList.remove('hide');
+    }
+}
+
+</script>
+<html>
